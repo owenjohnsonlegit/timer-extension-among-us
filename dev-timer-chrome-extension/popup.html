@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div id="timer-container">
+      <div>
+        <label for="timer-name">Timer Name:</label>
+        <input type="text" id="timer-name" />
+      </div>
+      <div>
+        <div id="timer-display">00:00</div>
+        <button id="start-btn">Start</button>
+        <button id="pause-btn">Pause</button>
+        <button id="finish-btn">Finish</button>
+      </div>
+    </div>
+    <button id="view-past-btn">View Past Times</button>
+    <div id="past-times">
+      <h2>Past Times</h2>
+      <ul id="past-list"></ul>
+    </div>
+  </body>
+</html>

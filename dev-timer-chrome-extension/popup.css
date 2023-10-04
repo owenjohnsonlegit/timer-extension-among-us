@@ -1,0 +1,23 @@
+body {
+  width: 300px;
+  padding: 10px;
+}
+
+#timer-container {
+  margin-bottom: 20px;
+}
+
+#past-times {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+#past-list {
+  list-style: none;
+  padding: 0;
+}
+
+#timer-display {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
