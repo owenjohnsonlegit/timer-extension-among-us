@@ -24,5 +24,14 @@
       <h2>Past Times</h2>
       <ul id="past-list"></ul>
     </div>
+
+    <!-- Testing condition for local development -->
+    <script>
+      if (location.protocol === "file:") {
+        document.getElementById("timer-display").innerText = "00:00";
+        document.getElementById("past-list").innerHTML =
+          "<li>Sample Time: 05:30</li>";
+      }
+    </script>
   </body>
 </html>
