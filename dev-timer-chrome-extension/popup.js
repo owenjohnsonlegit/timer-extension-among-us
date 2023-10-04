@@ -36,13 +36,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
     const timerName = timerNameInput.value || "Unnamed Timer";
 
-    // Save the past time
-    chrome.storage.sync.get({ pastTimes: [] }, (data) => {
-      const pastTimes = data.pastTimes;
-      pastTimes.push({ name: timerName, time: elapsedSeconds });
-      chrome.storage.sync.set({ pastTimes });
-      updatePastTimes();
-    });
+    // Check if chrome.storage is available
+    if (chrome.storage) {
+      // Save the past time
+      chrome.storage.sync.get({ pastTimes: [] }, (data) => {
+        const pastTimes = data.pastTimes;
+        pastTimes.push({ name: timerName, time: elapsedSeconds });
+        chrome.storage.sync.set({ pastTimes });
+        updatePastTimes();
+      });
+    } else {
+      // Simulate the behavior for local development
+      const samplePastTime = { name: "Sample Time", time: 330 }; // 05:30 in seconds
+      const pastTimes = [samplePastTime];
+      pastList.innerHTML = pastTimes
+        .map((time) => `<li>${time.name}: ${formatTime(time.time)}</li>`)
+        .join("");
+    }
 
     // Reset variables
     timerNameInput.value = "";
